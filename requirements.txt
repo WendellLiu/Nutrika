@@ -2,7 +2,6 @@
 appnope==0.1.0
 decorator==4.0.4
 dj-database-url==0.3.0
-dj-static==0.0.6
 gnureadline==6.3.3
 gunicorn==19.3.0
 ipython==4.0.0
@@ -14,4 +13,3 @@ ptyprocess==0.5
 simplegeneric==0.8.1
 static3==0.6.1
 traitlets==4.0.0
-psycopg2==2.6.1
