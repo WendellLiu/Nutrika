@@ -33,7 +33,7 @@ class Nutrition(models.Model):
     category = models.CharField(default=0, max_length=200)
     name = models.CharField(default=0, max_length=200)
     piece_weight = models.FloatField(default=0)
-    trivial = models.CharField(default=0, max_length=200)
+    trivial = models.CharField(max_length=200)
     calories_unit = models.FloatField(default=0)
     carbs_unit = models.FloatField(default=0)
     fat_unit = models.FloatField(default=0)
