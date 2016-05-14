@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Nutrition
+from .models import Nutrition
 
 
 class NutritionSerializer(serializers.ModelSerializer):

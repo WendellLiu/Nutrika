@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from models import Nutrition
+from .models import Nutrition
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from serializers import NutritionSerializer
+from .serializers import NutritionSerializer
 
 # Create your views here.
 
