@@ -1,4 +1,4 @@
 from django.contrib import admin
-from api.models import Nutrition
+from models import Nutrition
 
 admin.site.register(Nutrition)
