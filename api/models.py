@@ -1,8 +1,9 @@
+# coding=utf-8
 from django.db import models
 
 # Create your models here.
 
-"""
+u"""
 "100g_calories": 337.7443,
 "100g_carbs": 69.1678,
 "100g_fat": 2.565,
@@ -28,10 +29,9 @@ class Nutrition(models.Model):
     fat_100g = models.FloatField(default=0)
     protein_100g = models.FloatField(default=0)
     water_100g = models.FloatField(default=0)
-    all_name = models.CharField(default=0)
-    category = models.CharField(default=0)
-    id = models.FloatField(default=0)
-    name = models.CharField(default=0)
+    all_name = models.CharField(default=0, max_length=100)
+    category = models.CharField(default=0, max_length=200)
+    name = models.CharField(default=0, max_length=200)
     piece_weight = models.FloatField(default=0)
     trivial = models.FloatField(default=0)
     unit_calories = models.FloatField(default=0)
