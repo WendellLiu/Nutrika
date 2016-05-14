@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('category', models.CharField(default=0, max_length=200)),
                 ('name', models.CharField(default=0, max_length=200)),
                 ('piece_weight', models.FloatField(default=0)),
-                ('trivial', models.FloatField(default=0)),
+                ('trivial', models.CharField(default=0, max_length=200)),
                 ('unit_calories', models.FloatField(default=0)),
                 ('unit_carbs', models.FloatField(default=0)),
                 ('unit_fat', models.FloatField(default=0)),
