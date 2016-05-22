@@ -1,0 +1,35 @@
+#pin-results-list{
+
+    .single-pin-results{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 10px 0;
+
+        .amount-button{
+            width: 25%;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: space-between;
+
+        }
+    }
+
+    .detail-card{
+        background: rgb(255, 255, 255);
+        border: 2px solid #b8b0b0;
+        border-radius: 10px;
+        margin: 10px 0;
+        padding: 10px 20px;
+    }
+
+    .name{
+        margin: 0 0 0 10px;
+        font-size: 1.2em;
+        color: rgb(62, 62, 62);
+        letter-spacing: 1px;
+    }
+
+    .name:hover{
+        color: rgb(221, 190, 118);
+    }
+}

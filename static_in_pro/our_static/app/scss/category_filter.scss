@@ -1,0 +1,41 @@
+#category-filter{
+    label.expanded{
+        color: rgb(35, 69, 75);
+    }
+
+    &>label{
+        font-size: 2em;
+        color: rgb(35, 69, 75);
+
+    }
+
+    &>label:hover{
+        color: rgba(74, 149, 162, 0.72);
+        transition: color 0.2s ease-in;
+    }
+
+    margin: 20px 0;
+
+    input:checked + span{
+        color: rgb(200, 80, 55);
+    }
+
+    label{
+        width: 100%;
+
+        div{
+            padding: 3px 10px;
+
+        }
+
+        &>div:hover{
+            background: rgb(183, 200, 203);
+            transition: background 0.2s ease-in;
+        }
+
+        span{
+            color: rgb(80, 79, 78);
+            font-size: 1.2em;
+        }
+    }
+}

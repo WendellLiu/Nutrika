@@ -1,0 +1,39 @@
+.pin-dashborad{
+
+	#calories-sum{
+		height: 160px;
+	}
+
+	.block{
+		background: #ffffff;
+		border: 2px solid #d7d7dc;
+		padding: 5px 10px 10px 10px;
+	}
+
+	.chart{
+		padding: 30px;
+	}
+
+	.block-container{
+		padding: 0
+	}
+
+
+	.sum-number{
+		width: 100%;
+		height: 60px;
+
+		.title{
+			font-size: 4px;
+		}
+
+		.number{
+			font-size: 20px;
+			text-align: center;
+		}
+
+		.unit{
+			font-size: 10px;
+		}
+	}
+}

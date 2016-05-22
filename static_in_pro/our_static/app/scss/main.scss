@@ -1,0 +1,47 @@
+@import "./dashboard";
+@import "./category_filter";
+@import "./keyword_filter";
+@import "./results";
+@import "./pin_results";
+
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: rgb(60, 66, 77) !important;
+    height: 100vh;
+
+}
+
+.app-container{
+    height: 100vh;
+    .navbar{
+        height: 100%;
+
+        li a{
+            color: #fff;
+        }
+
+        li a:hover{
+            background: rgba(153, 146, 133, 0.51) !important;
+        }
+
+        li.active a{
+            background: rgb(153, 146, 133) !important;
+        }
+
+        li a:focus{
+            outline: none !important;
+        }
+    }
+
+    .tab-content{
+        padding: 10px 10px !important;
+    }
+}
+
+.tab-page{
+    overflow-y: scroll;
+    background: rgb(230, 230, 230);
+    height: 100%;
+}

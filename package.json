@@ -1,0 +1,57 @@
+{
+  "name": "nutrition_facts",
+  "version": "0.0.0",
+  "description": "Nutrition Facts from Taiwan FDA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "__dev__=1 webpack-dev-server --hot --inline --port 3000",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WendellLiu/taiwan-FDA-nutrition-facts.git"
+  },
+  "keywords": [
+    "Python",
+    "React",
+    "Redux"
+  ],
+  "author": "WendellLiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WendellLiu/taiwan-FDA-nutrition-facts/issues"
+  },
+  "homepage": "https://github.com/WendellLiu/taiwan-FDA-nutrition-facts#readme",
+  "devDependencies": {
+    "babel-core": "^6.7.7",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-runtime": "^6.6.1",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.6.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "d3": "^3.5.17",
+    "immutable": "^3.8.1",
+    "react": "^15.0.1",
+    "react-bootstrap": "^0.29.2",
+    "react-checkbox-group": "^1.0.4",
+    "react-dom": "^15.0.1",
+    "react-fontawesome": "^1.0.0",
+    "react-immutable-proptypes": "^1.7.1",
+    "react-redux": "^4.4.5",
+    "recharts": "^0.10.5",
+    "redux": "^3.5.2"
+  }
+}

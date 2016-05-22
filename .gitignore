@@ -3,3 +3,5 @@ db.sqlite3
 .idea
 *.pyc
 __pycache__
+static_in_env/
+node_modules/
