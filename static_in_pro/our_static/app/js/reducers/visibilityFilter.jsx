@@ -1,12 +1,6 @@
 import {Map, List} from 'immutable'
 
-const initState = Map({
-    keyword: '',
-    filter_no_unit: true,
-    categories: List([])
-})
-
-const visibilityFilter = (state = initState, action) => {
+const visibilityFilter = (state={}, action) => {
     switch (action.type) {
         case 'SET_SEARCH_KEYWORD':
             return state.set('keyword', action.keyword)

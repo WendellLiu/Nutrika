@@ -18,7 +18,7 @@ u"""
 "calories_unit": 0,
 "carbs_unit": 0,
 "fat_unit": 0,
-"fat_unit": 0,
+"protein_unit": 0,
 "water_unit": 0
 """
 

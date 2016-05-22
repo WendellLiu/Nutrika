@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export const setSearchKeyword = (keyword) => (
     {
         type: 'SET_SEARCH_KEYWORD',
@@ -45,3 +47,19 @@ export const editTarget = (target) => (
         target
     }
 )
+
+export const RECEIVE_ALL_NUTRITION = 'RECEIVE_ALL_NUTRITION'
+const receiveAllNutrition = (json) => (
+  {
+    type: RECEIVE_ALL_NUTRITION,
+    json
+  }
+)
+
+const fetch_all_nutrition = () => {
+  return dispatch => {
+    return fetch('/api/nutrition')
+      .then(response => response.json())
+      .then(json => dispatch(receiveAllNutrition(json)))
+  }
+}

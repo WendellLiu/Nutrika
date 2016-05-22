@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "__dev__=1 webpack-dev-server --hot --inline --port 3000",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "watch": "__dev__=1 webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
   "dependencies": {
     "d3": "^3.5.17",
     "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.0.1",
     "react-bootstrap": "^0.29.2",
     "react-checkbox-group": "^1.0.4",
