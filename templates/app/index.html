@@ -1,16 +1,15 @@
+{% extends 'app/base.html' %}
 {% load staticfiles %}
 
+{% block head_title %}App{{ block.super }}{% endblock %}
 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Nutrition Facts</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src='{% static "dist/app.entry.js" %}'></script>
-  </body>
-</html>
+{% block content %}
+<div id="root"></div>
+<script src='{% static "dist/app.entry.js" %}'></script>
+{% endblock %}
+
+
+{% block specified_js_lib %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+{% endblock %}
