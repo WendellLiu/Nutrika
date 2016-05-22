@@ -5,3 +5,4 @@ db.sqlite3
 __pycache__
 static_in_env/
 node_modules/
+npm-debug.log
