@@ -4,8 +4,6 @@ decorator==4.0.4
 dj-database-url==0.3.0
 gnureadline==6.3.3
 gunicorn==19.3.0
-ipython==4.0.0
-ipython-genutils==0.1.0
 path.py==8.1.2
 pexpect==4.0.1
 pickleshare==0.5
