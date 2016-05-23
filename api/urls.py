@@ -18,5 +18,5 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^nutrition/$', views.AllNutritionJson.as_view()),
+    url(r'^nutrition/$', views.NutritionJson.as_view()),
 ]

@@ -6,13 +6,14 @@ from .serializers import NutritionSerializer
 
 # Create your views here.
 
-class AllNutritionJson(APIView):
+class NutritionJson(APIView):
     """
-    list all items in specified location
+    export all nutrition data for json form
     """
 
     @staticmethod
     def get(request):
+        name = request.GET.get('name')
         nutrition_list = Nutrition.objects.all()
 
         serializer = NutritionSerializer(nutrition_list, many=True)
