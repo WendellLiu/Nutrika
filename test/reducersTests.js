@@ -1,6 +1,7 @@
 import expect from 'expect'
 import target from '../static_in_pro/our_static/app/js/reducers/target'
 import visibilityFilter from '../static_in_pro/our_static/app/js/reducers/visibilityFilter'
+import pinResults from '../static_in_pro/our_static/app/js/reducers/pinResults'
 import * as actions from '../static_in_pro/our_static/app/js/actions'
 import { fromJS, Map, List } from 'immutable'
 
@@ -91,6 +92,121 @@ describe('visibilityFilter reducers', () => {
 
     expect(
       visibilityFilter(initialState, actions.filterNoUnit(filter_no_unit))
+    ).toEqual(expectedState)
+  })
+})
+
+describe('pinResult', () => {
+  const initialState = fromJS(
+    [
+      {
+        id: 1,
+        name: '牛肉',
+        pinned: false,
+        pinned_amount: 1
+      },
+      {
+        id: 2,
+        name: '高麗菜',
+        pinned: false,
+        pinned_amount: 1
+      },
+      {
+        id: 5,
+        name: '肉包',
+        pinned: false,
+        pinned_amount: 1
+      },
+    ]
+  )
+
+  it('should return state after toggling a item', () => {
+    const id = 1
+    const expectedState = fromJS(
+      [
+        {
+          id: 1,
+          name: '牛肉',
+          pinned: true,
+          pinned_amount: 1
+        },
+        {
+          id: 2,
+          name: '高麗菜',
+          pinned: false,
+          pinned_amount: 1
+        },
+        {
+          id: 5,
+          name: '肉包',
+          pinned: false,
+          pinned_amount: 1
+        },
+      ]
+    )
+
+    expect(
+      pinResults(initialState, actions.togglePin(id))
+    ).toEqual(expectedState)
+  })
+
+  it('should return state after increasing pinned_amount of an item', () => {
+    const id = 1
+    const expectedState = fromJS(
+      [
+        {
+          id: 1,
+          name: '牛肉',
+          pinned: false,
+          pinned_amount: 2
+        },
+        {
+          id: 2,
+          name: '高麗菜',
+          pinned: false,
+          pinned_amount: 1
+        },
+        {
+          id: 5,
+          name: '肉包',
+          pinned: false,
+          pinned_amount: 1
+        },
+      ]
+    )
+
+    expect(
+      pinResults(initialState, actions.increasePinnedAmount(id))
+    ).toEqual(expectedState)
+  })
+
+  it('should return state after decreasing pinned_amount of an item', () => {
+    const id = 1
+    const expectedState = fromJS(
+      [
+        {
+          id: 1,
+          name: '牛肉',
+          pinned: false,
+          pinned_amount: 0
+        },
+        {
+          id: 2,
+          name: '高麗菜',
+          pinned: false,
+          pinned_amount: 1
+        },
+        {
+          id: 5,
+          name: '肉包',
+          pinned: false,
+          pinned_amount: 1
+        },
+      ]
+    )
+
+    expect(
+      pinResults(initialState, actions.decreasePinnedAmount(id))
     ).toEqual(expectedState)
   })
 })
