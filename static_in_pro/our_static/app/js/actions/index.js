@@ -9,7 +9,7 @@ export const setSearchKeyword = (keyword) => (
 )
 
 export const EDIT_CATEGORY = 'EDIT_CATEGORY'
-export const editCatogory = (categories) => (
+export const editCategory = (categories) => (
     {
         type: EDIT_CATEGORY,
         categories

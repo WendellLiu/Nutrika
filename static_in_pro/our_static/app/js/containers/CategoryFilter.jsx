@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { editCatogory } from '../actions'
+import { editCategory } from '../actions'
 import React from 'react'
 import CheckboxGroup from 'react-checkbox-group';
 import { Row, Col } from 'react-bootstrap'
@@ -21,7 +21,7 @@ class CategoryFilter extends React.Component {
     }
 
     handle_changed(array){
-        this.props.dispatch(editCatogory(array))
+        this.props.dispatch(editCategory(array))
     }
 
     render(){
