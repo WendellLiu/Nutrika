@@ -1,49 +1,56 @@
 import fetch from 'isomorphic-fetch'
 
+export const SET_SEARCH_KEYWORD = 'SET_SEARCH_KEYWORD'
 export const setSearchKeyword = (keyword) => (
     {
-        type: 'SET_SEARCH_KEYWORD',
+        type: SET_SEARCH_KEYWORD,
         keyword
     }
 )
 
+export const EDIT_CATEGORY = 'EDIT_CATEGORY'
 export const editCatogory = (categories) => (
     {
-        type: 'EDIT_CATEGORY',
+        type: EDIT_CATEGORY,
         categories
     }
 )
 
+export const TOGGLE_PIN = 'TOGGLE_PIN'
 export const togglePin = (id) => (
     {
-        type: 'TOGGLE_PIN',
+        type: TOGGLE_PIN,
         id
     }
 )
 
+export const FILTER_NO_UNIT = 'FILTER_NO_UNIT'
 export const filterNoUnit = () => (
     {
-        type: 'FILTER_NO_UNIT'
+        type: FILTER_NO_UNIT
     }
 )
 
+export const INCREASE_PINNED_AMOUNT = 'INCREASE_PINNED_AMOUNT'
 export const increasePinnedAmount = (id) => (
     {
-        type: 'INCREASE_PINNED_AMOUNT',
+        type: INCREASE_PINNED_AMOUNT,
         id
     }
 )
 
+export const DECREASE_PINNED_AMOUNT = 'DECREASE_PINNED_AMOUNT'
 export const decreasePinnedAmount = (id) => (
     {
-        type: 'DECREASE_PINNED_AMOUNT',
+        type: DECREASE_PINNED_AMOUNT,
         id
     }
 )
 
+export const EDIT_TARGET = 'EDIT_TARGET'
 export const editTarget = (target) => (
     {
-        type: 'EDIT_TARGET',
+        type: EDIT_TARGET,
         target
     }
 )
