@@ -5,14 +5,12 @@ import ResultList from '../components/ResultList'
 import { togglePin, increasePinnedAmount, decreasePinnedAmount } from '../actions'
 
 
-const getVisibleResults = (results, state) => {
+const getVisibleResults = (result, state) => {
     // keyword is a string
 
     if(!state.get('keyword').trim()){
         return List([])
     }
-
-    let result = results.filter(ele => (ele.get('all_name').indexOf(state.get('keyword')) > -1))
 
     if(state.get('categories').size>0){
         result = result.filter(ele => (state.get('categories').indexOf(ele.get('category'))!= -1))

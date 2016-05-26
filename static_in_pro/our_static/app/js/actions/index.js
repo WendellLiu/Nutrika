@@ -55,18 +55,22 @@ export const editTarget = (target) => (
     }
 )
 
-export const RECEIVE_ALL_NUTRITION = 'RECEIVE_ALL_NUTRITION'
-const receiveAllNutrition = (json) => (
+export const RECEIVE_NUTRITION = 'RECEIVE_NUTRITION'
+const receiveNutrition = (json) => (
   {
-    type: RECEIVE_ALL_NUTRITION,
+    type: RECEIVE_NUTRITION,
     json
   }
 )
 
-const fetch_all_nutrition = () => {
+export const fetch_nutrition = (keyword=null) => {
   return dispatch => {
-    return fetch('/api/nutrition')
-      .then(response => response.json())
-      .then(json => dispatch(receiveAllNutrition(json)))
+    dispatch(setSearchKeyword(keyword))
+
+    if(keyword){
+      return fetch('/api/nutrition' + '?name=' + keyword)
+        .then(response => response.json())
+        .then(json => dispatch(receiveNutrition(json)))
+    }
   }
 }

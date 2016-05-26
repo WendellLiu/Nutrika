@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import nutritionFactsApp from './reducers'
 import App from './components/App'
 import loggerForImmutable from './middlewares/loggerForImmutable'
@@ -27,12 +28,11 @@ fetch('/api/nutrition')
     })
 
     let initState = getInitState()
-    initState['pinResults'] = fromJS(json)
 
     if(process.env.NODE_ENV === 'production'){
-      store = createStore(nutritionFactsApp, initState)
+      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk))
     }else{
-      store = createStore(nutritionFactsApp, initState, applyMiddleware(loggerForImmutable))
+      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, loggerForImmutable))
     }
 
 

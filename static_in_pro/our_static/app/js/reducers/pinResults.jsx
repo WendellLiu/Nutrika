@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { TOGGLE_PIN, INCREASE_PINNED_AMOUNT, RECEIVE_ALL_NUTRITION, DECREASE_PINNED_AMOUNT } from '../actions'
+import { TOGGLE_PIN, INCREASE_PINNED_AMOUNT, RECEIVE_NUTRITION, DECREASE_PINNED_AMOUNT } from '../actions'
 
 
 const pinResult = (state, action) => {
@@ -31,7 +31,7 @@ const pinResults = (state={}, action) => {
     case INCREASE_PINNED_AMOUNT:
     case DECREASE_PINNED_AMOUNT:
       return state.map(ele => pinResult(ele, action))
-    case RECEIVE_ALL_NUTRITION:
+    case RECEIVE_NUTRITION:
       return fromJS(action.json)
     default:
       return state

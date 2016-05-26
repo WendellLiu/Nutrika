@@ -13,5 +13,6 @@ export const getInitState = () => (
         filter_no_unit: true,
         categories: List([])
     }),
+    pinResults: List([])
   }
 )

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setSearchKeyword } from '../actions'
+import { fetch_nutrition } from '../actions'
 import React from 'react'
 import { FormControl } from 'react-bootstrap'
 
@@ -9,7 +9,7 @@ let KeywordFilter = ( {dispatch} ) => (
         <FormControl type="text" onChange={
             (e) => {
                 e.preventDefault()
-                dispatch(setSearchKeyword(e.target.value))
+                dispatch(fetch_nutrition(e.target.value))
             }
         }
         />
