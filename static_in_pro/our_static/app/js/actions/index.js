@@ -96,3 +96,11 @@ export const fetch_nutrition = (keyword=null) => {
     }
   }
 }
+
+export const FETCH_NUTRITION_WITH_DELAY = 'FETCH_NUTRITION_WITH_DELAY'
+export const fetch_nutrition_with_delay = (keyword) => (
+  {
+    type: FETCH_NUTRITION_WITH_DELAY,
+    keyword
+  }
+)

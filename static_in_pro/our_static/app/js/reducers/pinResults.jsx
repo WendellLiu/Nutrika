@@ -1,5 +1,4 @@
 import { PUSH_POP_PIN, INCREASE_PINNED_AMOUNT, DECREASE_PINNED_AMOUNT } from '../actions'
-import SearchResults from './SearchResults'
 import { List } from 'immutable'
 
 
