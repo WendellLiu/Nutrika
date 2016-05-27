@@ -17,12 +17,29 @@ export const editCategory = (categories) => (
 )
 
 export const TOGGLE_PIN = 'TOGGLE_PIN'
-export const togglePin = (id) => (
+const togglePin = (id) => (
     {
         type: TOGGLE_PIN,
         id
     }
 )
+
+export const PUSH_POP_PIN = 'PUSH_POP_PIN'
+const pushPopPin = (item) => (
+    {
+        type: PUSH_POP_PIN,
+        item
+    }
+)
+
+export const handlePin = (id) => {
+  return (dispatch, getState) => {
+    dispatch(togglePin(id))
+
+    const item = getState().searchResults.filter(ele => ele.get('id') === id).get(0)
+    dispatch(pushPopPin(item))
+  }
+}
 
 export const FILTER_NO_UNIT = 'FILTER_NO_UNIT'
 export const filterNoUnit = () => (
@@ -70,6 +87,11 @@ export const fetch_nutrition = (keyword=null) => {
     if(keyword){
       return fetch('/api/nutrition' + '?name=' + keyword)
         .then(response => response.json())
+        .then(json => json.map(ele => {
+          ele['pinned'] = false
+          ele['pinned_amount'] = 1
+          return ele
+        }))
         .then(json => dispatch(receiveNutrition(json)))
     }
   }

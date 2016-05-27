@@ -13,6 +13,7 @@ export const getInitState = () => (
         filter_no_unit: true,
         categories: List([])
     }),
+    searchResults: List([]),
     pinResults: List([])
   }
 )

@@ -1,23 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PinResultList from '../components/PinResultList'
-import { togglePin, increasePinnedAmount, decreasePinnedAmount } from '../actions'
+import { handlePin, increasePinnedAmount, decreasePinnedAmount } from '../actions'
 
-
-const getPinResults = (immutable_list) => {
-    return immutable_list.filter(ele => ele.get('pinned') == true)
-}
 
 const mapStateToProps = (state, ownProps) => (
     {
-        results: getPinResults(state.pinResults)
+        results: state.pinResults
     }
 )
 
 const mapDispatchToProps = (dispatch) => (
     {
         toggle_pin: (id) => {
-            dispatch(togglePin(id))
+            dispatch(handlePin(id))
         },
         increase_pinned_amount: (id) => {
             dispatch(increasePinnedAmount(id))

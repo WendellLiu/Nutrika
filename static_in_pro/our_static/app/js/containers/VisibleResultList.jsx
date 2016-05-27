@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { List } from 'immutable'
 import ResultList from '../components/ResultList'
-import { togglePin, increasePinnedAmount, decreasePinnedAmount } from '../actions'
+import { handlePin, increasePinnedAmount, decreasePinnedAmount } from '../actions'
 
 
 const getVisibleResults = (result, state) => {
@@ -27,14 +27,14 @@ const getVisibleResults = (result, state) => {
 
 const mapStateToProps = (state, ownProps) => (
     {
-        results: getVisibleResults(state.pinResults, state.visibilityFilter)
+        results: getVisibleResults(state.searchResults, state.visibilityFilter)
     }
 )
 
 const mapDispatchToProps = (dispatch) => (
     {
         toggle_pin: (id) => {
-            dispatch(togglePin(id))
+            dispatch(handlePin(id))
         }
     }
 )
