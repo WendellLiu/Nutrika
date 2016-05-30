@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+import { fetchJSON } from '../utils'
 
 export const SET_SEARCH_KEYWORD = 'SET_SEARCH_KEYWORD'
 export const setSearchKeyword = (keyword) => (
@@ -85,8 +85,7 @@ export const fetch_nutrition = (keyword=null) => {
     dispatch(setSearchKeyword(keyword))
 
     if(keyword){
-      return fetch('/api/nutrition' + '?name=' + keyword)
-        .then(response => response.json())
+      return fetchJSON('/api/nutrition' + '?name=' + keyword)
         .then(json => json.map(ele => {
           ele['pinned'] = false
           ele['pinned_amount'] = 1
