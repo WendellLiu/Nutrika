@@ -37,5 +37,4 @@ class Nutrition(models.Model):
     protein_unit = models.FloatField(default=0)
     name = models.CharField(max_length=200)
     trivial = models.CharField(blank=True, max_length=200)
-    all_name = models.CharField(max_length=100)
     category = models.CharField(max_length=200)
