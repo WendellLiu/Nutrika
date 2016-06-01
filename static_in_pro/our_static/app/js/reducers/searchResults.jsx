@@ -1,4 +1,4 @@
-import { fromJS, List } from 'immutable'
+import { List } from 'immutable'
 import { TOGGLE_PIN, INCREASE_PINNED_AMOUNT, RECEIVE_NUTRITION, DECREASE_PINNED_AMOUNT } from '../actions'
 
 
@@ -20,7 +20,7 @@ const searchResults = (state=List([]), action) => {
     case TOGGLE_PIN:
       return state.map(ele => searchResult(ele, action))
     case RECEIVE_NUTRITION:
-      return fromJS(action.json)
+      return action.json
     default:
       return state
   }

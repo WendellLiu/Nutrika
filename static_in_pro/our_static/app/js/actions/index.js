@@ -1,4 +1,6 @@
 import { fetchJSON } from '../utils'
+import { fromJS } from 'immutable'
+
 
 export const SET_SEARCH_KEYWORD = 'SET_SEARCH_KEYWORD'
 export const setSearchKeyword = (keyword) => (
@@ -24,20 +26,35 @@ const togglePin = (id) => (
     }
 )
 
-export const PUSH_POP_PIN = 'PUSH_POP_PIN'
-const pushPopPin = (item) => (
+export const PUSH_PIN = 'PUSH_PIN'
+const pushPin = (item) => (
     {
-        type: PUSH_POP_PIN,
+        type: PUSH_PIN,
         item
+    }
+)
+
+export const POP_PIN = 'POP_PIN'
+const popPin = (id) => (
+    {
+        type: POP_PIN,
+        id
     }
 )
 
 export const handlePin = (id) => {
   return (dispatch, getState) => {
     dispatch(togglePin(id))
+    const state = getState()
 
-    const item = getState().searchResults.filter(ele => ele.get('id') === id).get(0)
-    dispatch(pushPopPin(item))
+    // check push or pop
+    if(state.pinResults.filter(ele => ele.get('id') === id).isEmpty()){
+      const item = getState().searchResults.filter(ele => ele.get('id') === id).get(0)
+      dispatch(pushPin(item))
+    }else{
+      dispatch(popPin(id))
+    }
+
   }
 }
 
@@ -81,16 +98,21 @@ const receiveNutrition = (json) => (
 )
 
 export const fetch_nutrition = (keyword=null) => {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setSearchKeyword(keyword))
+
+    const pin_or_not = (item) => {
+      return !getState().pinResults.filter(ele => ele.get('id') === item.id).isEmpty()
+    }
 
     if(keyword){
       return fetchJSON('/api/nutrition' + '?name=' + keyword)
         .then(json => json.map(ele => {
-          ele['pinned'] = false
+          ele['pinned'] = pin_or_not(ele)
           ele['pinned_amount'] = 1
           return ele
         }))
+        .then(json => fromJS(json))
         .then(json => dispatch(receiveNutrition(json)))
     }
   }
