@@ -1,0 +1,10 @@
+€}q(Usocial_auth.models]qUSOCIAL_AUTH_MODELS_MODULEqaUfda.settings]q(U	DATABASESqUMIDDLEWARE_CLASSESqUROOT_URLCONFqULANGUAGE_CODEqUUSE_I18Nq	U
+SECRET_KEYq
+UACCOUNT_LOGOUT_REDIRECT_URLqUAUTHENTICATION_BACKENDSqU	TEMPLATESqUSTATIC_ROOTqU	TIME_ZONEqUWSGI_APPLICATIONqUALLOWED_HOSTSqULOGIN_REDIRECT_URLqUBASE_DIRqUSITE_IDqU
+STATIC_URLqUUSE_L10NqUDEBUGqUUSE_TZqUINSTALLED_APPSqU
+MEDIA_ROOTqUSTATICFILES_DIRSqU	MEDIA_URLqeUsocial_auth.db.django_models]q(UNonceqU
+USER_MODELqUASSOCIATION_SERVER_URL_LENGTHq U
+UID_LENGTHq!UUserSocialAuthq"UASSOCIATION_HANDLE_LENGTHq#UNONCE_SERVER_URL_LENGTHq$Uis_integrity_errorq%UAssociationq&eUbsocial_auth.migrations.0002_auto__add_unique_nonce_timestamp_salt_server_url__add_unique_associati]q'(U
+USER_MODELq(UASSOCIATION_SERVER_URL_LENGTHq)U
+UID_LENGTHq*U	Migrationq+UASSOCIATION_HANDLE_LENGTHq,UNONCE_SERVER_URL_LENGTHq-eUfda.urls]q.(UUserViewSetq/UUserSerializerq0Urouterq1Uurlpatternsq2eUsocial_auth.utils]q3(Umodel_to_ctypeq4Uget_random_stringq5Usanitize_log_dataq6Udsa_urlopenq7Urandom_stringq8U
+ct_compareq9Uclean_partial_pipelineq:Ulogq;Uusing_sysrandomq<Usettingq=Uloggerq>ULEAVE_CHARSq?Uurl_add_parametersq@Ugroup_backend_by_typeqAU$get_custom_user_model_for_migrationsqBUsanitize_redirectqCUbackend_settingqDUconstant_time_compareqEULazyDictqFUctype_to_modelqGUmodule_memberqHUget_backend_nameqIUcustom_user_frozen_modelsqJeu.
