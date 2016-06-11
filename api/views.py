@@ -47,24 +47,30 @@ class NutritionJson(APIView):
             'water_100g': 12.63,
         }
         """
-        request_data = {k: v[0]
-                        for k, v in request.POST.dict().items()}
-        for k in request_data:
-            if '100g' in k:
-                request_data[k] = float(request_data[k])
-        request_data['piece_weight'] = float(request_data['piece_weight'])
-
+        request_data = NutritionJson.format_request_data(request.POST.dict())
         if request_data['convert']:
-            for k, v in request_data.items():
-                if '100g' in k:
-                    request_data[k] /= request_data['piece_weight']
+            request_data = NutritionJson.convert_to_100g(request_data)
         request_data.pop('convert')
 
-        nutrition = Nutrition(**request_data)
-        nutrition.save()
+        serializer = NutritionSerializer(data=request_data, many=False)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        serializer = NutritionSerializer(nutrition, many=False)
-        return Response(serializer.data)
+    @staticmethod
+    def put(request, pk, format=None):
+        request_data = NutritionJson.format_request_data(request.POST.dict())
+        if request_data['convert']:
+            request_data = NutritionJson.convert_to_100g(request_data)
+        request_data.pop('convert')
+
+        nutrition = Nutrition.objects.get(id=pk)
+        serializer = NutritionSerializer(nutrition, data=request_data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @staticmethod
     def delete(request, pk, format=None):
@@ -75,3 +81,18 @@ class NutritionJson(APIView):
         else:
             nutrition.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @staticmethod
+    def format_request_data(request_data):
+        for k in request_data:
+            if '100g' in k:
+                request_data[k] = float(request_data[k])
+        request_data['piece_weight'] = float(request_data['piece_weight'])
+        return request_data
+
+    @staticmethod
+    def convert_to_100g(request_data):
+        for k, v in request_data.items():
+            if '100g' in k:
+                request_data[k] /= request_data['piece_weight']
+        return request_data
