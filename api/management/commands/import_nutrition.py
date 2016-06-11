@@ -22,7 +22,6 @@ class Command(BaseCommand):
                     fat_100g=data['fat_100g'] if data['fat_100g'] else 0,
                     protein_100g=data['protein_100g'] if data['protein_100g'] else 0,
                     water_100g=data['water_100g'] if data['water_100g'] else 0,
-                    all_name=data['all_name'] if data['all_name'] else '',
                     category=data['category'] if data['category'] else '',
                     name=data['name'] if data['name'] else '',
                     piece_weight=data['piece_weight'] if data['piece_weight'] else 0,
