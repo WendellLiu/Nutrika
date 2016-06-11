@@ -18,13 +18,17 @@ class NutritionJson(APIView):
     @staticmethod
     def get(request):
         name = request.GET.get('name')
+        id = request.GET.get('id')
+        category = request.GET.get('cate')
+
+        nutrition_list = Nutrition.objects.filter(piece_weight__gt=0)
 
         if name:
-            nutrition_list = Nutrition.objects.filter(Q(name__contains=name) | Q(trivial__contains=name))\
-                                              .filter(piece_weight__gt=0)
-
-        else:
-            nutrition_list = Nutrition.objects.all()
+            nutrition_list = nutrition_list.filter(Q(name__contains=name) | Q(trivial__contains=name))
+        if id:
+            nutrition_list = nutrition_list.filter(id=id)
+        if category:
+            nutrition_list = nutrition_list.filter(category=category)
 
         serializer = NutritionSerializer(nutrition_list, many=True)
 
