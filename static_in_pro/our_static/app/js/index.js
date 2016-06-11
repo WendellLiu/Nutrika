@@ -12,8 +12,9 @@ import fetch from 'isomorphic-fetch'
 import { fromJS } from 'immutable'
 import { getInitState } from './getInitState'
 import 'babel-polyfill'
-
-
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import Routers from './routes'
 
 // style
 import '../scss/main'
@@ -35,14 +36,15 @@ fetch('/api/nutrition')
     if(process.env.NODE_ENV === 'production'){
       store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
     }else{
-      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware, loggerForImmutable))
+      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
     }
+    const history = syncHistoryWithStore(browserHistory, store)
 
     sagaMiddleware.run(rootSaga)
 
     render(
       <Provider store={store}>
-      <App />
+        <Routers history={history} />
       </Provider>,
       document.getElementById('root')
     )
