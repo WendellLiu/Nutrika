@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/app'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/app'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 
 # Application definition
 
@@ -37,6 +45,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
     'rest_framework',
     'api',
 )
@@ -113,6 +126,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_in_env', 'static_root')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_in_pro', 'our_static'),
     )
+
+SITE_ID = 1
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'media_root')
