@@ -19,4 +19,5 @@ from . import views
 
 urlpatterns = [
     url(r'^nutrition/$', views.NutritionJson.as_view()),
+    url(r'^nutrition/(?P<pk>[0-9]+)/$', views.NutritionJson.as_view()),
 ]

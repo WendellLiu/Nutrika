@@ -9,7 +9,6 @@ u"""
 "fat_100g": 2.565,
 "protein_100g": 14.118,
 "water_100g": 12.63,
-"all_name": "小麥,",
 "category": "穀物類",
 "id": 0,
 "name": "小麥",
