@@ -65,3 +65,13 @@ class NutritionJson(APIView):
 
         serializer = NutritionSerializer(nutrition, many=False)
         return Response(serializer.data)
+
+    @staticmethod
+    def delete(request, pk, format=None):
+        try:
+            nutrition = Nutrition.objects.get(id=pk)
+        except Nutrition.DoesNotExist:
+            return Response()
+        else:
+            nutrition.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
