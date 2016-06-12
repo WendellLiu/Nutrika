@@ -60,14 +60,14 @@ class TargetInput extends React.Component {
             return(
                 <FormGroup>
                     <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                    <FormControl defaultValue={100} type="text" onChange={this.handle_changed} />
+                    <FormControl type="text" onChange={this.handle_changed} />
                 </FormGroup>
             )
         }
         return(
             <FormGroup validationState={status}>
                 <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                <FormControl defaultValue={100} type="text" onChange={this.handle_changed} />
+                <FormControl type="text" onChange={this.handle_changed} />
             </FormGroup>
         )
 
