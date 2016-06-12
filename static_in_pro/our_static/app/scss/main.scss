@@ -8,7 +8,7 @@
 body{
     overflow-x: hidden;
     overflow-y: hidden;
-    background: rgb(60, 66, 77) !important;
+    background: rgb(60, 66, 77);
     height: 100vh;
 
 }
@@ -17,9 +17,25 @@ body{
     height: 100vh;
     .navbar{
         height: 100%;
+        padding: 0 20px 0 0;
+
+        ul{
+          width: 100%;
+          padding: 0;
+        }
+
+        li{
+          list-style-type:none;
+          width: 100%;
+        }
 
         li a{
-            color: #fff;
+          display: block;
+          padding: 12px 30px 12px 15px;
+          border-radius: 3px;
+          color: #fff;
+          text-decoration: none;
+          font-size: 14px;
         }
 
         li a:hover{
