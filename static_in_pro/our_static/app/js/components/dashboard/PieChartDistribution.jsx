@@ -13,7 +13,7 @@ const PieChartDistribution = ({title, array, entity}) => {
     return(
         <PieChart
             width={300}
-            height={300}
+            height={270}
          >
          <Tooltip />
             <Pie

@@ -12,18 +12,18 @@ class TargetForm extends React.Component {
             <div>
                 <label>你可以輸入預定的目標</label>
                 <Row>
-                    <Col md={6}>
+                    <Col md={4}>
                         <TargetInput edit_target={(target) => { this.props.dispatch(editTarget(target)) }} entity="calories" />
                     </Col>
-                    <Col md={6}>
+                    <Col md={4}>
                         <TargetInput edit_target={(target) => { this.props.dispatch(editTarget(target)) }} entity="protein" />
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={6}>
+                    <Col md={4}>
                         <TargetInput edit_target={(target) => { this.props.dispatch(editTarget(target)) }} entity="carbs" />
                     </Col>
-                    <Col md={6}>
+                    <Col md={4}>
                         <TargetInput edit_target={(target) => { this.props.dispatch(editTarget(target)) }} entity="fat" />
                     </Col>
                 </Row>

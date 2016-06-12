@@ -31,10 +31,10 @@ class TargetInput extends React.Component {
 
     translate_entity(entity){
         const dict = {
-            calories: '熱量',
-            protein: '蛋白質',
-            carbs: '碳水化合物',
-            fat: '脂肪'
+            calories: '熱量(kcal)',
+            protein: '蛋白質(g)',
+            carbs: '碳水化合物(g)',
+            fat: '脂肪(g)'
         }
 
         return dict[entity]
@@ -60,14 +60,14 @@ class TargetInput extends React.Component {
             return(
                 <FormGroup>
                     <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                    <FormControl type="text" onChange={this.handle_changed} />
+                    <FormControl defaultValue={100} type="text" onChange={this.handle_changed} />
                 </FormGroup>
             )
         }
         return(
             <FormGroup validationState={status}>
                 <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                <FormControl type="text" onChange={this.handle_changed} />
+                <FormControl defaultValue={100} type="text" onChange={this.handle_changed} />
             </FormGroup>
         )
 

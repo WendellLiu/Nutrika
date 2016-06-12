@@ -71,6 +71,7 @@ const PinDashboard = ({results, target}) => {
     	<div className="pin-dashborad">
 			<Row>
 			<Col md={5} className="block">
+				<p>蛋白質分布</p>
 				<PieChartDistribution
 					title="蛋白質分布"
 					array={results}
