@@ -24,12 +24,12 @@
 	{% providers_media_js %}
 	<a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
 
-	{{ user  }}
-	    {% if user.is_anonymous %}
-		    <a href="{% url 'account_login' %}">login</a>
-			{% else %}
-			<a href="{% url 'account_logout' %}">logout</a>
-		{% endif %}
+	{{ user }}
+    {% if user.is_anonymous %}
+      <a href="{% url 'account_login' %}">login</a>
+  	{% else %}
+  	<a href="{% url 'account_logout' %}">logout</a>
+	{% endif %}
 
 	{% block content %}
     {% endblock %}

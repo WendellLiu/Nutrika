@@ -51,6 +51,8 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'rest_framework',
+
+    # custom app
     'api',
 )
 
@@ -127,7 +129,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_in_pro', 'our_static'),
     )
 
-SITE_ID = 1
+SITE_ID = 3
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'media_root')
