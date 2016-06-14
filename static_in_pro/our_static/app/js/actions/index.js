@@ -19,7 +19,7 @@ export const editCategory = (categories) => (
 )
 
 export const TOGGLE_PIN = 'TOGGLE_PIN'
-const togglePin = (id) => (
+export const togglePin = (id) => (
     {
         type: TOGGLE_PIN,
         id
@@ -27,7 +27,7 @@ const togglePin = (id) => (
 )
 
 export const PUSH_PIN = 'PUSH_PIN'
-const pushPin = (item) => (
+export const pushPin = (item) => (
     {
         type: PUSH_PIN,
         item
@@ -35,28 +35,20 @@ const pushPin = (item) => (
 )
 
 export const POP_PIN = 'POP_PIN'
-const popPin = (id) => (
+export const popPin = (id) => (
     {
         type: POP_PIN,
         id
     }
 )
 
-export const handlePin = (id) => {
-  return (dispatch, getState) => {
-    dispatch(togglePin(id))
-    const state = getState()
-
-    // check push or pop
-    if(state.pinResults.filter(ele => ele.get('id') === id).isEmpty()){
-      const item = getState().searchResults.filter(ele => ele.get('id') === id).get(0)
-      dispatch(pushPin(item))
-    }else{
-      dispatch(popPin(id))
-    }
-
+export const HANDLE_PIN = 'HANDLE_PIN'
+export const handlePin = (id) => (
+  {
+    type: HANDLE_PIN,
+    id
   }
-}
+)
 
 export const FILTER_NO_UNIT = 'FILTER_NO_UNIT'
 export const filterNoUnit = () => (
