@@ -1,7 +1,3 @@
-import { fetchJSON } from '../utils'
-import { fromJS } from 'immutable'
-
-
 export const SET_SEARCH_KEYWORD = 'SET_SEARCH_KEYWORD'
 export const setSearchKeyword = (keyword) => (
     {
@@ -82,36 +78,15 @@ export const editTarget = (target) => (
 )
 
 export const RECEIVE_NUTRITION = 'RECEIVE_NUTRITION'
-const receiveNutrition = (json) => (
+export const receiveNutrition = (json) => (
   {
     type: RECEIVE_NUTRITION,
     json
   }
 )
 
-export const fetch_nutrition = (keyword=null) => {
-  return (dispatch, getState) => {
-    dispatch(setSearchKeyword(keyword))
-
-    const pin_or_not = (item) => {
-      return !getState().pinResults.filter(ele => ele.get('id') === item.id).isEmpty()
-    }
-
-    if(keyword){
-      return fetchJSON('/api/nutrition' + '?name=' + keyword)
-        .then(json => json.map(ele => {
-          ele['pinned'] = pin_or_not(ele)
-          ele['pinned_amount'] = 1
-          return ele
-        }))
-        .then(json => fromJS(json))
-        .then(json => dispatch(receiveNutrition(json)))
-    }
-  }
-}
-
 export const FETCH_NUTRITION_WITH_DELAY = 'FETCH_NUTRITION_WITH_DELAY'
-export const fetch_nutrition_with_delay = (keyword) => (
+export const fetch_nutrition_with_delay = (keyword=null) => (
   {
     type: FETCH_NUTRITION_WITH_DELAY,
     keyword
