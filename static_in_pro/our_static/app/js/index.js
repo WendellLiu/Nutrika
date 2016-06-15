@@ -9,7 +9,6 @@ import loggerForImmutable from './middlewares/loggerForImmutable'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import fetch from 'isomorphic-fetch'
-import { fromJS } from 'immutable'
 import { getInitState } from './getInitState'
 import 'babel-polyfill'
 import { browserHistory } from 'react-router'
@@ -36,7 +35,7 @@ fetch('/api/nutrition')
     if(process.env.NODE_ENV === 'production'){
       store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
     }else{
-      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
+      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware, loggerForImmutable))
     }
     const history = syncHistoryWithStore(browserHistory, store)
 
