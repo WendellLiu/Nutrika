@@ -6,3 +6,4 @@ __pycache__
 static_in_env/
 node_modules/
 npm-debug.log
+*.map

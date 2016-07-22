@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register --recursive",
     "start": "__dev__=1 webpack-dev-server --hot --inline --port 3000",
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "watch": "__dev__=1 webpack --progress --colors --watch"
   },
   "repository": {
