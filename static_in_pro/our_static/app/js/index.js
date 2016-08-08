@@ -21,30 +21,20 @@ import '../scss/main'
 let store
 const sagaMiddleware = createSagaMiddleware()
 
-fetch('/api/nutrition')
-  .then(response => response.json())
-  .then(json => {
-    json = json.map(ele => {
-      ele.pinned = false
-      ele.pinned_amount = 1
-      return ele
-    })
+let initState = getInitState
 
-    let initState = getInitState()
+if(process.env.NODE_ENV === 'production'){
+  store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
+}else{
+  store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware, loggerForImmutable))
+}
+const history = syncHistoryWithStore(browserHistory, store)
 
-    if(process.env.NODE_ENV === 'production'){
-      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
-    }else{
-      store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware, loggerForImmutable))
-    }
-    const history = syncHistoryWithStore(browserHistory, store)
+sagaMiddleware.run(rootSaga)
 
-    sagaMiddleware.run(rootSaga)
-
-    render(
-      <Provider store={store}>
-        <Routers history={history} />
-      </Provider>,
-      document.getElementById('root')
-    )
-  })
+render(
+  <Provider store={store}>
+    <Routers history={history} />
+  </Provider>,
+  document.getElementById('root')
+)

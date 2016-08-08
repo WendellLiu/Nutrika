@@ -1,7 +1,6 @@
 import { Map, List } from 'immutable'
 
-export const getInitState = () => (
-  {
+export const getInitState =   {
     target: Map({
         calories: 0,
         protein: 0,
@@ -16,4 +15,3 @@ export const getInitState = () => (
     searchResults: List([]),
     pinResults: List([])
   }
-)
