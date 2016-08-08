@@ -8,12 +8,12 @@ import App from './components/App'
 import loggerForImmutable from './middlewares/loggerForImmutable'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
-import fetch from 'isomorphic-fetch'
 import { getInitState } from './getInitState'
 import 'babel-polyfill'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import Routers from './routes'
+import { fromJS } from 'immutable'
 
 // style
 import '../scss/main'
@@ -21,7 +21,12 @@ import '../scss/main'
 let store
 const sagaMiddleware = createSagaMiddleware()
 
-let initState = getInitState
+// handle localStorage
+let initState = JSON.parse(localStorage.getItem('Nutrika')) || getInitState
+
+Object.keys(initState).forEach((ele, index) => {
+  initState[ele] = fromJS(initState[ele])
+1})
 
 if(process.env.NODE_ENV === 'production'){
   store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
@@ -31,6 +36,11 @@ if(process.env.NODE_ENV === 'production'){
 const history = syncHistoryWithStore(browserHistory, store)
 
 sagaMiddleware.run(rootSaga)
+
+// subcribe localstorage store
+store.subscribe(() => {
+  localStorage.setItem('Nutrika', JSON.stringify(store.getState()))
+})
 
 render(
   <Provider store={store}>
