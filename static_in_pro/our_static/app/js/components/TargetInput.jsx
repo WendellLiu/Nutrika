@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import editTarget from '../actions'
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import ImmutablePropTypes from 'react-immutable-proptypes'
 
 
 class TargetInput extends React.Component {
@@ -60,14 +61,14 @@ class TargetInput extends React.Component {
             return(
                 <FormGroup>
                     <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                    <FormControl type="text" onChange={this.handle_changed} />
+                    <FormControl type="text" onChange={this.handle_changed} defaultValue={this.props.target.get(this.props.entity)} />
                 </FormGroup>
             )
         }
         return(
             <FormGroup validationState={status}>
                 <ControlLabel>{this.translate_entity(this.props.entity)}</ControlLabel>
-                <FormControl type="text" onChange={this.handle_changed} />
+                <FormControl type="text" onChange={this.handle_changed}  />
             </FormGroup>
         )
 
@@ -76,7 +77,9 @@ class TargetInput extends React.Component {
 }
 
 TargetInput.propTypes = {
-    entity: PropTypes.string.isRequired
+    entity: PropTypes.string.isRequired,
+    target: ImmutablePropTypes.map,
+    edit_target: PropTypes.func.isRequired
 }
 
 export default TargetInput

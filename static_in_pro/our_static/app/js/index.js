@@ -14,6 +14,7 @@ import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import Routers from './routes'
 import { fromJS } from 'immutable'
+import localStorageSelector from './selectors/localStorageSelector'
 
 // style
 import '../scss/main'
@@ -28,6 +29,7 @@ Object.keys(initState).forEach((ele, index) => {
   initState[ele] = fromJS(initState[ele])
 1})
 
+
 if(process.env.NODE_ENV === 'production'){
   store = createStore(nutritionFactsApp, initState, applyMiddleware(thunk, sagaMiddleware))
 }else{
@@ -39,7 +41,8 @@ sagaMiddleware.run(rootSaga)
 
 // subcribe localstorage store
 store.subscribe(() => {
-  localStorage.setItem('Nutrika', JSON.stringify(store.getState()))
+  const storedState = localStorageSelector(store.getState())
+  localStorage.setItem('Nutrika', JSON.stringify(storedState))
 })
 
 render(
